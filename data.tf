@@ -1,3 +1,4 @@
+# Assume role policy for nodes
 data "aws_iam_policy_document" "nodes" {
   statement {
     sid    = "AllowEKSAssumeRole"
@@ -12,6 +13,7 @@ data "aws_iam_policy_document" "nodes" {
   }
 }
 
+#Assume role policy for cluster
 data "aws_iam_policy_document" "eks_assume_role" {
   statement {
     sid    = "AllowEKSAssumeRole"
