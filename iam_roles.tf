@@ -12,7 +12,7 @@ locals {
   ]
 }
 
-#Roles and Policies for node groups 
+#Roles and Policies for node-groups.
 resource "aws_iam_role" "nodes" {
   name = "eks-node-group-nodes"
   assume_role_policy = data.aws_iam_policy_document.nodes.json
