@@ -18,7 +18,7 @@ resource "aws_iam_role" "nodes" {
   assume_role_policy = data.aws_iam_policy_document.nodes.json
 }
 
-resource "aws_iam_role_policy_attachment" "node-AmazonEKSWorkerNodePolicy" {
+resource "aws_iam_role_policy_attachment" "nodes-AmazonEKSWorkerNodePolicy" {
   for_each = toset(local.node_policies)
   policy_arn = each.value
   role = aws_iam_role.nodes.name
@@ -31,7 +31,7 @@ resource "aws_iam_role" "demo" {
 }
 
 resource "aws_iam_role_policy_attachment" "demo-AmazonEKSClusterPolicy" {
-   for_each = toset(local.eks_policies)
+  for_each = toset(local.eks_policies)
   policy_arn = each.value
   role = aws_iam_role.demo.name
 }
